@@ -1,5 +1,7 @@
 package com.onlineExamSystem.entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -34,7 +36,7 @@ message = "Password must be 8-20 characters long, include at least one digit, on
 	
 	@OneToMany(mappedBy = "user")
 	@JsonBackReference
-	private Results results;
+	private List<Results> results;
 	
 	protected User() {
 		
@@ -42,10 +44,14 @@ message = "Password must be 8-20 characters long, include at least one digit, on
 
 	
 	
+	
+
+
+
 	protected User(int userId,
 			@NotBlank @Size(min = 3, max = 20, message = "name length must be min 2 or max 20 charaters") String userName,
 			@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$", message = "Password must be 8-20 characters long, include at least one digit, one lowercase letter, one uppercase letter, one special character, and no spaces.") String password,
-			@NotBlank String mail, String role, Results results) {
+			@NotBlank String mail, String role, List<Results> results) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -54,6 +60,10 @@ message = "Password must be 8-20 characters long, include at least one digit, on
 		this.role = role;
 		this.results = results;
 	}
+
+
+
+
 
 
 
@@ -97,13 +107,21 @@ message = "Password must be 8-20 characters long, include at least one digit, on
 		this.role = role;
 	}
 
-	public Results getResults() {
+	
+
+	public List<Results> getResults() {
 		return results;
 	}
 
-	public void setResults(Results results) {
+	public void setResults(List<Results> results) {
 		this.results = results;
 	}
+
+
+
+
+
+
 
 	@Override
 	public String toString() {

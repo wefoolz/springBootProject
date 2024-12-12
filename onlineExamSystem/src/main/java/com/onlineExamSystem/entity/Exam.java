@@ -1,5 +1,7 @@
 package com.onlineExamSystem.entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -28,11 +30,11 @@ public class Exam {
 	
 	@OneToMany(mappedBy = "exam")
 	@JsonBackReference
-	private Results results;
+	private List<Results> results;
 	
 	@OneToMany(mappedBy = "exam")
 	@JsonBackReference
-	private Questions questions;
+	private List<Questions> questions;
 
 	protected Exam() {
 		
@@ -40,8 +42,8 @@ public class Exam {
 
 	protected Exam(int examId,
 			@NotBlank @Size(min = 3, max = 20, message = "Exam name length must be min 2 or max 20 charaters") String examName,
-			@NotBlank(message = "please provide date of the exam") String date, String description, Results results,
-			Questions questions) {
+			@NotBlank(message = "please provide date of the exam") String date, String description,
+			List<Results> results, List<Questions> questions) {
 		super();
 		this.examId = examId;
 		this.examName = examName;
@@ -50,6 +52,8 @@ public class Exam {
 		this.results = results;
 		this.questions = questions;
 	}
+
+
 
 	public int getExamId() {
 		return examId;
@@ -83,21 +87,26 @@ public class Exam {
 		this.description = description;
 	}
 
-	public Results getResults() {
+
+	public List<Results> getResults() {
 		return results;
 	}
 
-	public void setResults(Results results) {
+	public void setResults(List<Results> results) {
 		this.results = results;
 	}
 
-	public Questions getQuestions() {
+	public List<Questions> getQuestions() {
 		return questions;
 	}
 
-	public void setQuestions(Questions questions) {
+
+
+	public void setQuestions(List<Questions> questions) {
 		this.questions = questions;
 	}
+
+
 
 	@Override
 	public String toString() {

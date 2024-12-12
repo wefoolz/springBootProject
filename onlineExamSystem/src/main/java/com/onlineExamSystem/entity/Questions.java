@@ -1,5 +1,7 @@
 package com.onlineExamSystem.entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -28,20 +30,24 @@ public class Questions {
 	
 	@OneToMany(mappedBy = "questions")
 	@JsonBackReference
-	private Options options;
+	private List<Options> options;
 
 	protected Questions() {
 
 	}
 
+	
+
 	protected Questions(int questionId, @NotBlank(message = "please enter Question") String questionText, Exam exam,
-			Options options) {
+			List<Options> options) {
 		super();
 		this.questionId = questionId;
 		this.questionText = questionText;
 		this.exam = exam;
 		this.options = options;
 	}
+
+
 
 	public int getQuestionId() {
 		return questionId;
@@ -67,13 +73,19 @@ public class Questions {
 		this.exam = exam;
 	}
 
-	public Options getOptions() {
+	
+	
+	public List<Options> getOptions() {
 		return options;
 	}
 
-	public void setOptions(Options options) {
+
+
+	public void setOptions(List<Options> options) {
 		this.options = options;
 	}
+
+
 
 	@Override
 	public String toString() {
