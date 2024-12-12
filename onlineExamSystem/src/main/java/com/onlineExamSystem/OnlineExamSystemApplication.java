@@ -1,4 +1,4 @@
-package com.onllineExamSystem;
+package com.onlineExamSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
