@@ -1,6 +1,7 @@
 package com.onlineExamSystem.entity;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,7 +32,8 @@ message = "Password must be 8-20 characters long, include at least one digit, on
 	 
 	private String role;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	@OneToMany(mappedBy = "user")
+	@JsonBackReference
 	private Results results;
 	
 	protected User() {

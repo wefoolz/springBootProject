@@ -1,5 +1,8 @@
 package com.onlineExamSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,10 +22,12 @@ public class Questions {
 	@NotBlank(message="please enter Question")
 	private String questionText;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private Exam exam;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "questions")
+	@OneToMany(mappedBy = "questions")
+	@JsonBackReference
 	private Options options;
 
 	protected Questions() {

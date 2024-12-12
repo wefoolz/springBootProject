@@ -1,6 +1,7 @@
 package com.onlineExamSystem.entity;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,10 +26,12 @@ public class Exam {
 	
 	private String description;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "exam")
+	@OneToMany(mappedBy = "exam")
+	@JsonBackReference
 	private Results results;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "exam")
+	@OneToMany(mappedBy = "exam")
+	@JsonBackReference
 	private Questions questions;
 
 	protected Exam() {

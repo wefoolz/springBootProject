@@ -1,5 +1,8 @@
 package com.onlineExamSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +23,8 @@ public class Options {
 	@NotBlank(message="The answer is correct or not")
 	private boolean isCorrect;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private Questions questions;
 
 	protected Options() {
