@@ -16,65 +16,12 @@ public class Results {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int resultId;
 	
-	private int score;
+	private int result;
+
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private User user;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonManagedReference
-	private Exam exam;
+	private Exam examId;
+	private ClassRoomStudent classRoomStudentId;
 
-	protected Results() {
-
-	}
-
-	protected Results(int resultId, int score, User user, Exam exam) {
-		super();
-		this.resultId = resultId;
-		this.score = score;
-		this.user = user;
-		this.exam = exam;
-	}
-
-	public int getResultId() {
-		return resultId;
-	}
-
-	public void setResultId(int resultId) {
-		this.resultId = resultId;
-	}
-
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Exam getExam() {
-		return exam;
-	}
-
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
-
-	@Override
-	public String toString() {
-		return "Results [resultId=" + resultId + ", score=" + score + ", user=" + user + ", exam=" + exam + "]";
-	}
-
-	
-	
 }

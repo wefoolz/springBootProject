@@ -22,78 +22,15 @@ public class Questions {
 	private int questionId;
 	
 	@NotBlank(message="please enter Question")
-	private String questionText;
+	private String questions;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private Exam exam;
+	private Exam examId;
 	
 	@OneToMany(mappedBy = "questions")
 	@JsonBackReference
 	private List<Options> options;
 
-	protected Questions() {
-
-	}
-
-	
-
-	protected Questions(int questionId, @NotBlank(message = "please enter Question") String questionText, Exam exam,
-			List<Options> options) {
-		super();
-		this.questionId = questionId;
-		this.questionText = questionText;
-		this.exam = exam;
-		this.options = options;
-	}
-
-
-
-	public int getQuestionId() {
-		return questionId;
-	}
-
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
-	}
-
-	public String getQuestionText() {
-		return questionText;
-	}
-
-	public void setQuestionText(String questionText) {
-		this.questionText = questionText;
-	}
-
-	public Exam getExam() {
-		return exam;
-	}
-
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
-
-	
-	
-	public List<Options> getOptions() {
-		return options;
-	}
-
-
-
-	public void setOptions(List<Options> options) {
-		this.options = options;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Questions [questionId=" + questionId + ", questionText=" + questionText + ", exam=" + exam
-				+ ", options=" + options + "]";
-	}
-
-	
-	
 	
 }

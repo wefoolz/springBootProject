@@ -2,8 +2,8 @@ package com.onlineExamSystem.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.onlineExamSystem.entity.User;
+import com.onlineExamSystem.entity.Teacher;
 
-public interface UserRepository extends JpaRepository<User, Integer>{
+public interface UserRepository extends JpaRepository<Teacher, Integer>{
 
 }

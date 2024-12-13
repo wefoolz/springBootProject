@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class OnlineExamSystemController {
 
-	@GetMapping("/demo")
+	@GetMapping("/")
 	public String demo(Model model) {
 		model.addAttribute("name","ram");
-		return "user/demo";
-		
+		model.addAttribute("title", "OnlineExamSystem-HomePage");
+		return "home";
 	}
 }

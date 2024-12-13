@@ -18,66 +18,13 @@ public class Options {
 	private int opoitnId;
 	
 	@NotBlank(message="Enter Option Text")
-	private String optionText;
+	private String options;
 	
 	@NotBlank(message="The answer is correct or not")
 	private boolean isCorrect;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private Questions questions;
-
-	protected Options() {
-
-	}
-
-	protected Options(int opoitnId, @NotBlank(message = "Enter Option Text") String optionText,
-			@NotBlank(message = "The answer is correct or not") boolean isCorrect, Questions questions) {
-		super();
-		this.opoitnId = opoitnId;
-		this.optionText = optionText;
-		this.isCorrect = isCorrect;
-		this.questions = questions;
-	}
-
-	public int getOpoitnId() {
-		return opoitnId;
-	}
-
-	public void setOpoitnId(int opoitnId) {
-		this.opoitnId = opoitnId;
-	}
-
-	public String getOptionText() {
-		return optionText;
-	}
-
-	public void setOptionText(String optionText) {
-		this.optionText = optionText;
-	}
-
-	public boolean isCorrect() {
-		return isCorrect;
-	}
-
-	public void setCorrect(boolean isCorrect) {
-		this.isCorrect = isCorrect;
-	}
-
-	public Questions getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(Questions questions) {
-		this.questions = questions;
-	}
-
-	@Override
-	public String toString() {
-		return "Options [opoitnId=" + opoitnId + ", optionText=" + optionText + ", isCorrect=" + isCorrect
-				+ ", questions=" + questions + "]";
-	}
-	
-	
+	private Questions questionsId;
 
 }
