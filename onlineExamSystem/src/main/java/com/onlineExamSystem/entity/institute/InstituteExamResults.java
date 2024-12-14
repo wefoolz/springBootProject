@@ -1,4 +1,4 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.institute;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Results {
+public class InstituteExamResults {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Results {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private Exam examId;
+	private InstituteExam examId;
 	private ClassRoomStudent classRoomStudentId;
 
 }

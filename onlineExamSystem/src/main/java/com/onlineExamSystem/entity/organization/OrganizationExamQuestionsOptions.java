@@ -1,17 +1,11 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.organization;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Options {
+public class OrganizationExamQuestionsOptions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +19,6 @@ public class Options {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private Questions questionsId;
+	private OrganizationExamQuestions questionsId;
 
 }

@@ -1,4 +1,4 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.institute;
 
 import jakarta.persistence.Entity;
 
@@ -8,5 +8,5 @@ public class ClassRoom {
     private String classRoomName;
     private Teacher teacherId;
     private ClassRoomStudent classRoomStudent;
-    private Exam exam;
+    private InstituteExam exam;
 }

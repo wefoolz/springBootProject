@@ -1,4 +1,4 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.institute;
 
 import jakarta.persistence.Entity;
 

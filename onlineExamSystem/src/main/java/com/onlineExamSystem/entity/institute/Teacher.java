@@ -1,4 +1,4 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.institute;
 
 import java.util.List;
 
@@ -38,6 +38,6 @@ public class Teacher {
 	@OneToMany(mappedBy = "user")
 	@JsonBackReference
 	private List<ClassRoom> results;
-	private Exam exam;
+	private InstituteExam exam;
 
 }

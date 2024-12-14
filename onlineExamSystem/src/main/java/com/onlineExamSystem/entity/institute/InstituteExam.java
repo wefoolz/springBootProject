@@ -1,4 +1,4 @@
-package com.onlineExamSystem.entity;
+package com.onlineExamSystem.entity.institute;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-public class Exam {
+public class InstituteExam {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,10 +32,10 @@ public class Exam {
 	private Teacher teacherId;
 	@OneToMany(mappedBy = "exam")
 	@JsonBackReference
-	private List<Results> results;
+	private List<InstituteExamResults> results;
 	
 	@OneToMany(mappedBy = "exam")
 	@JsonBackReference
-	private List<Questions> questions;
+	private List<InstituteExamQuestions> questions;
 
 }
