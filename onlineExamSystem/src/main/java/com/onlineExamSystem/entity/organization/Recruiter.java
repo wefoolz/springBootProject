@@ -1,16 +1,12 @@
 package com.onlineExamSystem.entity.organization;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.onlineExamSystem.entity.institute.ClassRoom;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
-
 @Entity
-public class recruiter {
+public class Recruiter {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +24,7 @@ public class recruiter {
 
 	@NotBlank
 	private String emailId;
-	private OrganizationAdmin organizationId;
+	private OrganizationRecruiter organizationRecruiter;
 
 	private OrganizationExam exam;
 

@@ -1,7 +1,6 @@
 package com.onlineExamSystem.entity.organization;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.onlineExamSystem.entity.institute.ClassRoom;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -23,7 +22,7 @@ public class OrganizationExam {
 	private String date;
 	
 	private String description;
-	private recruiter recruiterId;
+	private Recruiter recruiterId;
 	private ExamJobseekar examJobseekar;
 	
 	@OneToMany(mappedBy = "exam")

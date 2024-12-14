@@ -15,6 +15,6 @@ public class OrganizationAdmin {
     private String organizationName;
     private String organizationAddress;
     private String organizationMail;
-    private recruiter recruiter;
+    private Recruiter recruiter;
 
 }

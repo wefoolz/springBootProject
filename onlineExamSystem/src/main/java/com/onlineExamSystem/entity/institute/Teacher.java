@@ -32,7 +32,7 @@ public class Teacher {
 
 	@NotBlank
 	private String emailId;
-	private InstituteAdmin instituteId;
+	private InstituteTeacher instituteTeacher;
 
 	
 	@OneToMany(mappedBy = "user")
