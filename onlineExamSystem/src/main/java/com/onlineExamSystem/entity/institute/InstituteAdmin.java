@@ -16,7 +16,7 @@ public class InstituteAdmin {
     private String instituteAddress;
     private String instituteMail;
     private InstituteTeacher instituteTeacher;
-    private Student student;
+    private InstituteStudent instituteStudent;
 
 
 

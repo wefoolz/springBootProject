@@ -10,6 +10,6 @@ private String studentNameL;
 private String userName;
 private String password;
 private String emailId;
-private InstituteAdmin instituteId;
+private InstituteStudent instituteStudent;
 private ClassRoomStudent classRoomStudent;
 }
