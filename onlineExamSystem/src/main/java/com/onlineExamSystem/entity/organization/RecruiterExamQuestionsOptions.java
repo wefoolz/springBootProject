@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class OrganizationExamQuestionsOptions {
+public class RecruiterExamQuestionsOptions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,11 +14,10 @@ public class OrganizationExamQuestionsOptions {
 	@NotBlank(message="Enter Option Text")
 	private String options;
 	
-	@NotBlank(message="The answer is correct or not")
 	private boolean isCorrect;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private OrganizationExamQuestions questionsId;
+	private RecruiterExamQuestions questionsId;
 
 }

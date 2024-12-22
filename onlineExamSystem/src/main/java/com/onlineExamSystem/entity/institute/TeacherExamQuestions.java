@@ -1,5 +1,8 @@
 package com.onlineExamSystem.entity.institute;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -8,23 +11,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class InstituteExamQuestionsOptions {
+public class TeacherExamQuestions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int opoitnId;
+	private int questionId;
 	
-	@NotBlank(message="Enter Option Text")
-	private String options;
-	
-	@NotBlank(message="The answer is correct or not")
-	private boolean isCorrect;
+	@NotBlank(message="please enter Question")
+	private String questions;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private InstituteExamQuestions questionsId;
+	private TeacherExam examId;
+	
+	@OneToMany(mappedBy = "questions")
+	@JsonBackReference
+	private List<TeacherExamQuestionsOptions> options;
 
+	
 }

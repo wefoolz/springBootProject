@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
-public class OrganizationExamResults {
+public class RecruiterExamResults {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +12,8 @@ public class OrganizationExamResults {
 	
 	private int result;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private ExamJobseekar examJobseekarId;
 
 }

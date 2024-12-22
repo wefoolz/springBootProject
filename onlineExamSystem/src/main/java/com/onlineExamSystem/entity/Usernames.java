@@ -12,4 +12,6 @@ public class Usernames {
     private int userNamesId;
 
     private String userNames;
+    
+    private String roles;
 }

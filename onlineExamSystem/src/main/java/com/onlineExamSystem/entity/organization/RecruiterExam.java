@@ -1,6 +1,8 @@
 package com.onlineExamSystem.entity.organization;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -8,7 +10,7 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-public class OrganizationExam {
+public class RecruiterExam {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +24,17 @@ public class OrganizationExam {
 	private String date;
 	
 	private String description;
-	private Recruiter recruiterId;
-	private ExamJobseekar examJobseekar;
 	
-	@OneToMany(mappedBy = "exam")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private Recruiter recruiterId;
+	
+	@OneToMany(mappedBy = "examId")
 	@JsonBackReference
-	private List<OrganizationExamQuestions> questions;
+	private List<RecruiterExamQuestions> questions;
+	
+	@OneToMany(mappedBy = "examId")
+	@JsonBackReference
+	private List<ExamJobseekar> examJobseekar;
 
 }

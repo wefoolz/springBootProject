@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-public class OrganizationExamQuestions {
+public class RecruiterExamQuestions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ public class OrganizationExamQuestions {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private OrganizationExam examId;
+	private RecruiterExam examId;
 	
 	@OneToMany(mappedBy = "questions")
 	@JsonBackReference
-	private List<OrganizationExamQuestionsOptions> options;
+	private List<RecruiterExamQuestionsOptions> options;
 
 	
 }
