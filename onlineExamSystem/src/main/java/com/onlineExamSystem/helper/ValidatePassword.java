@@ -5,30 +5,28 @@ import org.springframework.stereotype.Component;
 @Component
 public class ValidatePassword {
 
-	public boolean validatePassword(String password) {
-		boolean result = false;
-		try {
-			if (password != null) {
-				String MIN_LENGTH = "8";
-				String MAX_LENGTH = "20";
-				boolean SPECIAL_CHAR_NEEDED = false;
+	public boolean validateUserPassword(String password) {
+	    if (password == null) {
+	        return false; // Early return for null input
+	    }
 
-				String ONE_DIGIT = "(?=.*[0-9])";
-				String LOWER_CASE = "(?=.*[a-z])";
-				String UPPER_CASE = "(?=.*[A-Z])";
-				String SPECIAL_CHAR = SPECIAL_CHAR_NEEDED ? "(?=.*[@#$%^&+=])" : "";
-				String NO_SPACE = "(?=\\S+$)";
+	    // Password constraints
+	    int minLength = 8;
+	    int maxLength = 20;
+	    boolean specialCharNeeded = false;
 
-				String MIN_MAX_CHAR = ".{" + MIN_LENGTH + "," + MAX_LENGTH + "}";
-				String PATTERN = ONE_DIGIT + LOWER_CASE + UPPER_CASE + SPECIAL_CHAR + NO_SPACE + MIN_MAX_CHAR;
+	    // Regex components
+	    String oneDigit = "(?=.*[0-9])";          // At least one digit
+	    String lowerCase = "(?=.*[a-z])";         // At least one lowercase letter
+	    String upperCase = "(?=.*[A-Z])";         // At least one uppercase letter
+	    String specialChar = specialCharNeeded ? "(?=.*[@#$%^&+=])" : ""; // Optional special character
+	    String noSpace = "(?=\\S+$)";             // No spaces allowed
+	    String lengthConstraint = ".{" + minLength + "," + maxLength + "}"; // Length constraints
 
-				result = password.matches(PATTERN);
-			}
+	    // Combine all constraints into a single pattern
+	    String pattern = oneDigit + lowerCase + upperCase + specialChar + noSpace + lengthConstraint;
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		
-		return result;
+	    // Validate password against the pattern
+	    return password.matches(pattern);
 	}
 }

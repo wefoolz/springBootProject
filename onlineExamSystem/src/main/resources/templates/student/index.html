@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" th:replace="student/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!--section for dynamic rendring-->
+<section class="banner d-flex justify-content-center align-item-center">
+<div class="text-center">
+   <h1 id="time"> </h1>
+   <span th:text="${(user==null)?'NO user':user.username}"></span><br/>
+    loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorems
+    loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorems
+    loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorems
+    loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorems
+</div>
+</section>
+<!--section for dynamic rendring ends-->
+
+</body>
+</html>

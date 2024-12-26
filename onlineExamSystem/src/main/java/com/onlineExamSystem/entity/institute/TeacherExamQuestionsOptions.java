@@ -8,22 +8,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "teacherexamquestionsoptions")
 public class TeacherExamQuestionsOptions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int opoitnId;
+	private int opoitnid;
 	
 	@NotBlank(message="Enter Option Text")
 	private String options;
 	
-	private boolean isCorrect;
+	private boolean iscorrect;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private TeacherExamQuestions questionsId;
+	private TeacherExamQuestions questionsid;
 
 }

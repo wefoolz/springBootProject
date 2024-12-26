@@ -8,23 +8,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="teacherexamresults")
 public class TeacherExamResults{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int resultId;
+	private int resultid;
 	
 	private String result;
 
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private TeacherExam examId;
+	private TeacherExam examid;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private ClassRoomStudent classRoomStudentId;
+	private ClassRoomStudent classroomstudentid;
 
 }

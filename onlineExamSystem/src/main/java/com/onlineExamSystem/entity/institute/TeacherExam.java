@@ -12,19 +12,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
+@Table(name = "teacherexam")
 public class TeacherExam {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int examId;
+	private int examid;
 
 	@NotBlank
 	@Size(min = 3, message = "Exam name length must be min 3 charaters")
-	private String examName;
+	private String examname;
 
 	@NotBlank(message = "please provide date of the exam")
 	private String date;
@@ -33,15 +35,15 @@ public class TeacherExam {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private ClassRoom classRoomId;
+	private ClassRoom classroomid;
 
-	private int teacherId;
+	private int teacherid;
 
-	@OneToMany(mappedBy = "examId")
+	@OneToMany(mappedBy = "examid")
 	@JsonBackReference
 	private List<TeacherExamQuestions> questions;
 
-	@OneToMany(mappedBy = "examId")
+	@OneToMany(mappedBy = "examid")
 	@JsonBackReference
 	private List<TeacherExamResults> results;
 
