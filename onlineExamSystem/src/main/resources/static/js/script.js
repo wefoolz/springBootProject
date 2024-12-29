@@ -120,6 +120,7 @@
 
 */
 
+
 document.addEventListener("keyup", function(event) {
 	if (event.key === "Control") {
 		console.log("Ctrl key released!");
