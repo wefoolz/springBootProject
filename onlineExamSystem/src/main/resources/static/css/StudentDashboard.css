@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.horizantal_bar{
+    width:100%;
+    height:15vh;
+    background-color: #29b9a4;
+    color: aliceblue;
+    border:solid rgb(105, 102, 102) 3px;
+    padding:10px 0px 0px 10px;
+   display:flex;
+   justify-content:flex-start;align-items:flex-start;
+   
+   
+}
+h2{
+    margin: 20px 0px 0px 20px;
+}
+
+.right-side {
+margin-top: 20px;
+   padding-left: 50%;
+    display:flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+   
+
+}
+
+li a{
+    text-decoration: none;
+    color:beige;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 25px;
+    background-color: rgb(38, 125, 205);
+    border-radius: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.side_bar{
+    width: 310px;
+    height: 84vh;
+    background-color: #29b9a4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border:outset rgb(105, 102, 102) 3px;
+    margin-top: 2px;
+    padding:20px 0px ;
+}
+.horizantal_bar .profile-pic{
+    background-image: url(/Student_dashboard/img/student_user.png);
+    width:100px;
+    height:100px;
+    background-color:wheat;
+    background-size: cover;
+    background-repeat:no-repeat ;
+    border-radius: 50%;
+}
