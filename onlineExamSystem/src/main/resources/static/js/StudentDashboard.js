@@ -11,4 +11,5 @@ logoutBtn.onclick =function(){
     },500);
 }
 
+
 /* logout button  end */
