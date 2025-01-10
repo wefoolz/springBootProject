@@ -17,6 +17,17 @@
 	rel="stylesheet">
 
 <!--    project file-->
+<link rel="stylesheet" href="/css/StudentDashboard.css">
+                         <!-- css file end    -->
+
+          <!-- bootstrap file link -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+        <!-- bootstrap file end -->
 <link rel="stylesheet" th:href="@{/css/style.css}">
 <title th:text="${user.username+' Home Page'}"></title>
 </head>
@@ -26,6 +37,7 @@
 	<div class="navbar">
 
 		<div class="navbar-logo">
+		
 			<img src="Assignment1/Screenshot__278_-removebg-preview.png" alt="">
 		</div>
 
@@ -96,6 +108,26 @@
 
 		</div>
 	</div>
+	<!-- side bar start -->
+         <input type="checkbox" id="btn">
+        <label for="btn" class="menu-btn">
+            <i class="fas fa-bars"></i>
+         </label>
+       
+         <div class="side_bar">
+        
+            <ul class="list-group">
+               <li class="list-group-item"><a href="/student/SProfile.html"><i class="fa fa-user"></i> Profile</a></li>
+                <li class="list-group-item"><a href="/student/Upcoming.html"><i class="fa-solid fa-forward"></i> UPcoming...</a></li>
+                <li class="list-group-item"><a href="/student/Attempted.html"><i class="fa-solid fa-check"></i> Attempted Exams</a></li>
+                <li class="list-group-item"><a href="/student/Unattempted.html"><i class="fa-regular fa-circle-xmark"></i> UnAttempted Exams</a></li>
+                <li class="list-group-item"><a href="/student/Pre_Exam.html"><i class="fa-solid fa-chevron-left"></i> Previous Exams</a></li>
+                <li class="list-group-item"><a href="/student/Student_Stat.html"><i class="fa fa-home"></i> Student Statistics</a></li>
+            </ul>
+           
+            <!-- side bar end --> 
+         <a id="logout-btn" type="button" class="btn btn-danger" th:href="@{'/logout'}"><i class="fa fa-sign-out-alt"></i> LOG OUT</a>
+         </div>
 	<!--nav bar ends-->
 
 	<!--dynamic content section-->
@@ -130,4 +162,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <!--project file-->
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
+<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/StudentDashboard.js"></script>
 </html>

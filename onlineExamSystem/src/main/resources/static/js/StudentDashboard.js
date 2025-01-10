@@ -6,7 +6,7 @@ logoutBtn.onclick =function(){
     this.style.background ="#ccc";
   //   changes for parth     
     setTimeout(function(){
-        window.location = "/onlineExamSystem/src/main/resources/templates/base.html" 
+        window.location = "/src/template/teacher/base.html" 
         sessionStorage.removeItem =("/")
     },500);
 }

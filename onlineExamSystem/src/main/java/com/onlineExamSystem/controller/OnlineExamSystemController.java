@@ -40,14 +40,13 @@ public class OnlineExamSystemController {
 
 	@Autowired
 	UserotpRepository userotpRepository;
-	
+
 	@Autowired
 	ValidatePassword validatepassword;
 
 	Thread t;
-	
-	
-	//Open Home Page 
+
+	// Open Home Page
 	@GetMapping("/home")
 	public String home(Model model) {
 
@@ -57,27 +56,24 @@ public class OnlineExamSystemController {
 		return "home";
 	}
 
-	
-	//Validate fields that are required at the time of registration
+	// Validate fields that are required at the time of registration
 	@PostMapping("/validate_fields")
 	public String validatFields(@Valid @ModelAttribute("users") Users user, BindingResult result, Model model,
 			RedirectAttributes redirectAttribute, HttpSession session) {
 		Userotp userotp = new Userotp();
 		if (result.hasErrors()) {
-			System.out.println("validation Error");
-			System.out.println(result);
-			System.out.println(user);
 			model.addAttribute("users", user);
 			model.addAttribute("message", new Message("Validation Error! Please Enter Proper Data!", "alert-danger"));
 			model.addAttribute("modal", "#userModal");
 			return "home";
-		} else if(!validatepassword.validateUserPassword(user.getPassword())) {
-			
+		} else if (!validatepassword.validateUserPassword(user.getPassword())) {
+
 			model.addAttribute("users", user);
-			model.addAttribute("message",
-					new Message("Password Must Contain Atleas 8 charcacters! \n Must Contain Atleast One Capital And One Lower Case Alphabate! \n Must Contain Atleast One Special Char \n Must Contain Atleas On Digit!", "alert-danger"));
+			model.addAttribute("message", new Message(
+					"Password Must Contain Atleas 8 charcacters! \n Must Contain Atleast One Capital And One Lower Case Alphabate! \n Must Contain Atleast One Special Char \n Must Contain Atleas On Digit!",
+					"alert-danger"));
 			model.addAttribute("modal", "#userModal");
-		}else if (userRepository.getUserByUserName(user.getUsername()) != null) {
+		} else if (userRepository.getUserByUserName(user.getUsername()) != null) {
 			model.addAttribute("users", user);
 			model.addAttribute("message",
 					new Message("UserName Already Exist Please Use Differnt User Name!!", "alert-danger"));
@@ -98,11 +94,11 @@ public class OnlineExamSystemController {
 
 			// generate otp
 			String otp = otpGenerat.getOtp();
-			System.out.println(user);
-			System.out.println("otp generate:= " + otp);
+			
+			
 
 			// save otp
-			
+
 			userotp.setOtp(otp);
 			userotp.setUsername(user.getUsername());
 			userotpRepository.deleteUserByUserName(userotp.getUsername());
@@ -115,10 +111,7 @@ public class OnlineExamSystemController {
 					Thread.sleep(60000); // 5 minutes
 
 					userotpRepository.deleteUserByUserName(userotp.getUsername());
-					System.out.println("Otp deleted:= "+userotp);
-					System.out.println("OTP for user " + user.getUsername() + " deleted after 5 minutes.");
 				} catch (InterruptedException e) {
-					System.err.println("Task interrupted: " + e.getMessage());
 					Thread.currentThread().interrupt();
 				}
 			};
@@ -142,13 +135,13 @@ public class OnlineExamSystemController {
 			e.printStackTrace();
 			userotpRepository.deleteUserByUserName(userotp.getUsername());
 			model.addAttribute("users", user);
-			model.addAttribute("message", new Message("Something Went Wrong!! Please Trye Again Or After Some Time", "alert-danger"));
+			model.addAttribute("message",
+					new Message("Something Went Wrong!! Please Trye Again Or After Some Time", "alert-danger"));
 			model.addAttribute("modal", "#userModal");
 			return "home";
 
 		}
 
-		
 		redirectAttribute.addAttribute("modal", "#otpModal");
 		session.setAttribute("user", user);
 		return "redirect:/online_exam_system/home";
@@ -162,18 +155,15 @@ public class OnlineExamSystemController {
 
 		String otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
 		Users user = (Users) session.getAttribute("user");
-		System.out.println("User Regisered:= " + user);
-		System.out.println("Otp Entered by user: " + otp);
 		Userotp stored = new Userotp();
 		stored = userotpRepository.getUserByUserName(user.getUsername());
-		System.out.println("Stored OTP:= " + stored);
-		if(stored==null) {
+		if (stored == null) {
 			model.addAttribute("users", user);
 			model.addAttribute("message", new Message("Time Exceded Please Regenerate OTP!", "alert-danger"));
 			model.addAttribute("modal", "#userModal");
 			return "home";
 		}
-		
+
 		boolean b = otp.equals(stored.getOtp());
 		if (!b) {
 			model.addAttribute("users", user);
@@ -184,20 +174,17 @@ public class OnlineExamSystemController {
 		}
 
 		t.interrupt();
-		System.out.println("hello------------------------");
 		try {
 
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userRepository.save(user);
-			System.out.println(user);
-			System.out.println("User Registered!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("users", user);
 			model.addAttribute("message",
 					new Message("Something Went Wrong!! Please Trye Agina Or After Some Time!!", "alert-danger"));
-			System.out.println("Server Error");
+			
 			return "home";
 		}
 

@@ -51,10 +51,16 @@ public class SystemConfiguration {
 				.requestMatchers(new AntPathRequestMatcher("/student/**")).hasRole("STUDENT")
 				.requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
 				)
-		.formLogin(form->form.loginPage("/home")
+		.formLogin(form->form.loginPage("/online_exam_system/home")
 				.loginProcessingUrl("/dologin")
 				.successHandler(successHandler))
 		.logout(logout->logout.logoutUrl("/logout").permitAll())
+		.exceptionHandling(exception -> exception
+	            .authenticationEntryPoint((request, response, authException) -> {
+	                // Redirect unauthenticated users to login page
+	                response.sendRedirect("/online_exam_system/home");
+	            })
+	        )
 		.csrf(csrf->csrf.disable());
 		return http.build();
 	}

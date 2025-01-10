@@ -24,14 +24,18 @@ public class StudentController {
 		@ModelAttribute
 		public void addCommanData(Model model, Principal principal) {
 			String name = principal.getName();// getting username
-			System.out.println(name + " User name");
 			Users user = userRepository.getUserByUserName(name);// getting user data
-			System.out.println("user " + user);
 			model.addAttribute("user", user);
 		}
 	
+//	@GetMapping("/index")
+//	public String homepage(Model model, Principal principal) {
+//		
+//		return "student/index";
+//	}
+	
 	@GetMapping("/index")
-	public String homepage(Model model, Principal principal) {
+	public String dashboardpage(Model model, Principal principal) {
 		
 		return "student/index";
 	}

@@ -4,11 +4,13 @@
     box-sizing: border-box;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+
 /* horionatal bar or nav bar  start */
 .horizantal_bar{
     width:100%;
     height:15vh;
-    background-color: #29b9a4;
+    background-color:teal;
     color: aliceblue;
     border:solid rgb(105, 102, 102) 3px;
     padding:6px 0px 0px 10px;
@@ -19,7 +21,7 @@
  
 }
 .horizantal_bar .profile-pic{
-    background-image: url(/onlineExamSystem/src/main/resources/Images/student_user.png);
+    background-image: url(/src/static/img/student_user.png);
     width:90px;
     height:80px;
     background-color:wheat;
@@ -36,38 +38,49 @@ h2{
 
 .right-side {
 margin-top: 20px;
-   padding-left: 60%;
+   padding-left: 56%;
     display:flex;
    align-items: center;
    justify-content: space-between;
+ 
+}
+
+.right-side i{
+    margin-right: 5px;
+
 }
 
 li{
     list-style: none;
     display: inline-block;
+  
 }
 
-li a{
+.right-side ul li a{
     text-decoration: none;
-    color:beige;
+    color:#fff;
     font-size: 25px;
     font-weight: bold;
     margin-right: 25px;
-    background-color: rgb(38, 125, 205);
-    border-radius: 3rem;
-    font-family: 'Courier New', Courier, monospace;
+    
+  
+}
+.right-side ul li a:hover{
+    color: #ddd;
+    background-color:#241d1d;
+    border-radius: 0.5rem;
 }
 /* Horizontal bar or nav bar END */
 
 /* Side bar START*/
+
 .side_bar{
-  
  position: fixed;  
  top: 96.4px;
- left: 0;
+ left:-310px;
     width: 280px;
     height: 85vh;
-    background-color: #29b9a4;
+    background-color: teal;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -75,10 +88,50 @@ li a{
     margin-top: 2px;
     padding:20px 0px ;
     flex-direction: column;
+    transition: all 0.5s ease;
+   
+    
+
 }
+
+input[type="checkbox"]{
+    display: none;
+    
+}
+
+ .menu-btn{
+    position:fixed;
+    top: 16% ;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 999;
+    color: #fff;
+    background-color:teal;
+    border: 2px solid #333;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center ;
+    font-size: 23px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+
+}
+#btn:checked ~ .menu-btn{
+left: 233px;
+
+}
+#btn:checked ~ .menu-btn i:before{
+    content:"\f00d";
+   
+    }
+#btn:checked ~ .side_bar{
+    left: 0;
+}  
 .side_bar ul{
+  
     width: 100%;
-     margin: 20px 0px 0px; 
+     margin: 20px 0px 0px;  
 }
 
 .side_bar ul li{
@@ -86,15 +139,28 @@ li a{
     background-color: transparent;
     font-size: 20px;
     color: #fff;
+    
+}
+.side_bar ul a li{
+    text-decoration: none;
 }
 
-.side_bar ul li:hover{
-    background-color: #fff;
-    color: #000;
+.side_bar ul a li{
+    color:#fff;
+    font-size:20px;
+    font-weight: bold;
+    margin-right: 25px;
+    
 }
+.side_bar ul a li:hover{
+    background-color: #fff;
+    color: #000;   
+}
+
+
 .side_bar button{
     position: absolute;
-    bottom: 1%;
+    bottom: 3%;
     width: 70%;
     padding: 13px;
     border:solid 3px #fff;
@@ -105,9 +171,25 @@ li a{
     font-size: 15px;
     border-bottom: 3px solid #000;
 }
-    .side_bar button:hover{
-        background-color: #fff;
-        color: #000;
+
+.side_bar i{
+     margin-right: 15px;
     
 }
+.side_bar button:hover{
+        background-color: #fff;
+        color: #000;
+}
 /* Side bar END */
+
+/* <!-- Side_bar tabs Start --> */
+.content{
+    flex-grow: 1;
+    padding: 20px;
+}
+.tab-content{
+display: none;
+}
+.tab-content .active{
+    display:block;
+}
