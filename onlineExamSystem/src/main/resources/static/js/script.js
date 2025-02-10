@@ -208,4 +208,3 @@ document.getElementById('emailid').addEventListener('input', function() {
 	}
 
 });
-

@@ -34,9 +34,43 @@ public class StudentController {
 //		return "student/index";
 //	}
 	
+	//Student Home Page handler
 	@GetMapping("/index")
 	public String dashboardpage(Model model, Principal principal) {
-		
+		model.addAttribute("title","Home Page");
 		return "student/index";
+	}
+	
+	
+	//Student Pre_Exam handler
+	@GetMapping("/previousexam")
+	public String preExamPage(Model model){
+		model.addAttribute("title","Previous Exams");
+		return "student/Pre_Exam";
+	}
+	
+	//Student SProfile handler
+	@GetMapping("/profile")
+	public String spprofilePage(Model model){
+		model.addAttribute("title","Profile");
+		return "student/SProfile";
+	}
+	//Student Student_Stat handler
+	@GetMapping("/studentstats")
+	public String studentStatPage(Model model){
+		model.addAttribute("title","Stats");
+		return "student/Student_Stat";
+	}
+	//Student Unattempted handler
+	@GetMapping("/unattempted")
+	public String unattemptedPage(Model model){
+		model.addAttribute("title","UnAttempted Exams");
+		return "student/Unattempted";
+	}
+	//Student Upcoming handler
+	@GetMapping("/upcomingexams")
+	public String upcomingPage(Model model){
+		model.addAttribute("title","Upcoming Exams");
+		return "student/Upcoming";
 	}
 }

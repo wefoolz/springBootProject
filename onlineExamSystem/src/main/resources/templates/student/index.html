@@ -1,19 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org" th:replace="student/base::layout(~{::section})">
-
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+	th:replace="student/base::layout(~{::section})">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student_Dashboard</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-   
-    <!-- nav bar start --> 
-    <section>
-       
-    </section>
-    
-</body>
 
+	<!-- /////////////////////////////////////////// -->
+
+	<!--section for dynamic rendring-->
+	<section>
+
+
+		<!-- /////////////////////////////////////// -->
+		<!-- side bar start -->
+
+		<!-- side bar start -->
+		<input type="checkbox" id="btn"> <label for="btn"
+			class="menu-btn"> <i class="fas fa-bars"></i>
+		</label>
+
+		<div class="side_bar">
+
+			<ul class="list-group">
+				<li class="list-group-item"><a href="/student/profile"><i
+						class="fa fa-user"></i> Profile</a></li>
+				<li class="list-group-item"><a href="/student/upcomingexams"><i
+						class="fa-solid fa-forward"></i> UPcoming...</a></li>
+				<li class="list-group-item"><a href="#"><i
+						class="fa-solid fa-check"></i> Attempted Exams</a></li>
+				<li class="list-group-item"><a href="/student/unattempted"><i
+						class="fa-regular fa-circle-xmark"></i> UnAttempted Exams</a></li>
+				<li class="list-group-item"><a href="/student/previousexam"><i
+						class="fa-solid fa-chevron-left"></i> Previous Exams</a></li>
+				<li class="list-group-item"><a
+					href="/student/studentstats"><i class="fa fa-home"></i>
+						Student Statistics</a></li>
+			</ul>
+
+			<!-- side bar end -->
+			<a id="logout-btn" type="button" class="btn btn-danger"
+				th:href="@{'/logout'}"><i class="fa fa-sign-out-alt"></i> LOG
+				OUT</a>
+		</div>
+
+
+		<!-- side bar end -->
+
+		<!-- ///////////////////////////////////////////////////// -->
+
+
+	</section>
+	<!--section for dynamic rendring ends-->
+
+	<!-- /////////////////////////////////////////// -->
+
+</body>
 </html>
